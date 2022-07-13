@@ -35,6 +35,15 @@ function emptyDisplay() {
 }
 
 function addNumToDisplay (e) {
+
+	if(display == "Don't do that" || display == "Try again") {
+		operator = ""
+		valueOne = 0;
+		valueTwo = 0;
+		display = ""
+		displayCalc.innerHTML = `${display}`;
+	}
+
 	display += this.firstChild.data;
 	displayCalc.innerHTML = `${display}`;
 	if(!valueOne) operator = '';
@@ -57,7 +66,28 @@ function addOpToDisplay (e) {
 }
 
 function processData() {
+	
 	valueTwo = parseFloat(display);
+
+	//error handles
+	if(operator == '/' && valueTwo == 0) {
+		display = "Don't do that"
+		displayCalc.innerHTML = `${display}`;
+		operator = ""
+		valueOne = 0;
+		valueTwo = 0;
+		return;
+	}
+
+	if(!operator || !valueOne || !valueTwo) {
+		display = "Try again"
+		displayCalc.innerHTML = `${display}`;
+		operator = ""
+		valueOne = 0;
+		valueTwo = 0;
+		return;
+	}
+
 	display = operate(operator,valueOne,valueTwo);
 
 	display = parseFloat(display.toFixed(5));
@@ -69,10 +99,31 @@ function processData() {
 }
 
 
+function backspaceDisplay() {
+	
+	let temp = String(display);
+	display = Number(temp.substring(0,temp.length-1));
+	valueOne = display;
+
+	displayCalc.innerHTML = `${display}`;
+}
+
+
+function flipSign() {
+	display *= -1;
+	displayCalc.innerHTML = `${display}`;
+}
+
 let displayCalc = document.querySelector('.display');
+
+let changeSign = document.querySelector('.btn-sign');
+changeSign.addEventListener('click', flipSign);
 
 let clearDisplay = document.querySelector('.btn-clear');
 clearDisplay.addEventListener('click', emptyDisplay);
+
+let backDisplay = document.querySelector('.btn-back');
+backDisplay.addEventListener('click', backspaceDisplay);
 
 let enterButton = document.querySelector('.btn-enter');
 enterButton.addEventListener('click', processData);

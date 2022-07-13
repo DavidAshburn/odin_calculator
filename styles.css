@@ -24,7 +24,7 @@
   width: 3rem;
   height: 3rem;
   font-size: 18px;
-  background: #96d9ff;
+  background: #bfffdd;
   border: 1px solid #639fff;
   color: #231c9e;
   font-family: cursive;
@@ -74,6 +74,30 @@
   font-size: 14px;
 }
 
+.btn-back {
+  width: 3rem;
+  font-size: 20px;
+  background: #96d9ff;
+  border: 1px solid #639fff;
+  color: #231c9e;
+  font-family: cursive;
+  border-radius: 4px;
+  height: 3rem;
+  font-size: 14px;
+}
+
+.btn-sign {
+  width: 3rem;
+  font-size: 20px;
+  background: #ffd187;
+  border: 1px solid #639fff;
+  color: #231c9e;
+  font-family: cursive;
+  border-radius: 4px;
+  height: 3rem;
+  font-size: 14px;
+}
+
 /* flexbox containers */
 
 .calc-container {
@@ -109,5 +133,12 @@
 .num-row {
   display: flex;
   gap: 1px;
+  /* border: 1px solid blue; */
+}
+
+.btm-row {
+  display: flex;
+  gap: 1px;
+  margin-top: .3rem;
   /* border: 1px solid blue; */
 }
