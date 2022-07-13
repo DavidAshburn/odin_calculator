@@ -26,6 +26,7 @@ let valueTwo = 0;
 let operator = "";
 let display = "";
 
+//-- Clear All Button --//
 function emptyDisplay() {
 	display = "";
 	operator = ""
@@ -34,6 +35,8 @@ function emptyDisplay() {
 	displayCalc.innerHTML = `${display}`;
 }
 
+//-- All Number Buttons--//
+//-- Some error handling for div by zero or entering operators out of order--//
 function addNumToDisplay (e) {
 
 	if(display == "Don't do that" || display == "Try again") {
@@ -49,15 +52,17 @@ function addNumToDisplay (e) {
 	if(!valueOne) operator = '';
 }
 
+//-- All Operator Buttons --//
 function addOpToDisplay (e) {
-	if(!valueOne) {
+	
+	if(!valueOne) { //if no previous input/display
 		valueOne = parseFloat(display);
 		operator = this.firstChild.data;
 		display += ` ${operator}`;
 		displayCalc.innerHTML = `${display}`;
 		display = "";
 	}
-	else {
+	else { //this handles sequential operations normally
 		operator = this.firstChild.data;
 		display += ` ${operator}`;
 		displayCalc.innerHTML = `${display}`;
@@ -78,7 +83,6 @@ function processData() {
 		valueTwo = 0;
 		return;
 	}
-
 	if(!operator || !valueOne || !valueTwo) {
 		display = "Try again"
 		displayCalc.innerHTML = `${display}`;
@@ -89,9 +93,7 @@ function processData() {
 	}
 
 	display = operate(operator,valueOne,valueTwo);
-
 	display = parseFloat(display.toFixed(5));
-
 	displayCalc.innerHTML = `${display}`;
 	valueOne = parseFloat(display);
 	operator = "";
@@ -99,12 +101,11 @@ function processData() {
 }
 
 
+//-- lots of type conversion back and forth to make this work correctly --//
 function backspaceDisplay() {
-	
 	let temp = String(display);
 	display = Number(temp.substring(0,temp.length-1));
 	valueOne = display;
-
 	displayCalc.innerHTML = `${display}`;
 }
 
@@ -114,6 +115,7 @@ function flipSign() {
 	displayCalc.innerHTML = `${display}`;
 }
 
+//-- Listeners for all my buttons --//
 let displayCalc = document.querySelector('.display');
 
 let changeSign = document.querySelector('.btn-sign');
