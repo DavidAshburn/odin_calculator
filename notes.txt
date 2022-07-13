@@ -1,0 +1,25 @@
+Requirements:
+
+functions:
+	4-function
+	exponent
+	square root
+
+
+buttons:
+	digits
+	operators
+	parentheses
+	equals
+	clear
+
+logic:
+	PEMDAS
+	Parentheses
+	Rounding long decimals (precision)
+	no dividing by 0
+
+Extra Credit:
+	decimal button
+	backspace button
+	keyboard support
