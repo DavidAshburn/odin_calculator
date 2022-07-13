@@ -7,11 +7,17 @@
 }
 
 .display {
+  display: flex;
   background: #639fff;
   height: 3rem;
   width: 12rem;
   border-top-right-radius: 15px;
   padding: 1px;
+  padding-right: 3px;
+  font-size: 1.8rem;
+  font-family: cursive;
+  justify-content: right;
+  align-items: end;
 }
 
 .btn-number {
@@ -45,7 +51,26 @@
 }
 
 .btn-enter {
+  width: 3rem;
+  font-size: 20px;
+  background: #96d9ff;
+  border: 1px solid #639fff;
+  color: #231c9e;
+  font-family: cursive;
+  border-radius: 4px;
   height: 6.05rem;
+  font-size: 14px;
+}
+
+.btn-clear {
+  width: 3rem;
+  font-size: 20px;
+  background: #96d9ff;
+  border: 1px solid #639fff;
+  color: #231c9e;
+  font-family: cursive;
+  border-radius: 4px;
+  height: 3rem;
   font-size: 14px;
 }
 
