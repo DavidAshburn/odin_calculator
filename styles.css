@@ -1,5 +1,20 @@
+:root {
+  --def-bg-color: #2341fc;
+  --calc-body-color: #014b8f;
+  --calc-num-color: #81c3f5;
+  --calc-op-color: #002e57;
+  --calc-sign-color: #fff09a;
+  --calc-enter-color: #ffe44b;
+  --calc-display-color: #d9f4f8;
+  --calc-text-color: black;
+  --calc-op-text-color: whitesmoke;
+  --calc-func-text-color: #014b8f;
+  --calc-border-color: #006ab3;
+  --gap-const: .2rem;
+}
+
 body {
-  background: #422000;
+  background: var(--def-bg-color);
   background-image: url("water.webp");
   background-repeat: no-repeat;
   background-size: 100vw;
@@ -8,13 +23,18 @@ body {
 .body-main {
   display: flex;
   justify-content: center;
-  
+}
+
+.bordered {
+  border: .125rem solid var(--calc-border-color);
+  border-radius: .5rem;
 }
 
 .calculator-box {
   padding: 1rem;
-  background: #2377fc;
-  width: 12.2rem;
+  background: var(--calc-body-color);
+  color: var(--calc-text-color);
+  width: 12.6rem;
   border-top-right-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 5rem;
@@ -22,9 +42,9 @@ body {
 
 .display {
   display: flex;
-  background: #639fff;
+  background: var(--calc-display-color);
   height: 3rem;
-  width: 12rem;
+  width: 12.3rem;
   border-top-right-radius: 15px;
   padding: 1px;
   padding-right: 3px;
@@ -32,28 +52,25 @@ body {
   font-family: cursive;
   justify-content: right;
   align-items: end;
+  color: black;
 }
 
 .btn-number {
   width: 3rem;
   height: 3rem;
   font-size: 18px;
-  background: #bfffdd;
-  border: 2px solid #2f009c;
-  color: #231c9e;
+  background: var(--calc-num-color);
+  color: var(--calc-text-color);
   font-family: cursive;
-  border-radius: 4px;
 }
 
 .btn-operator {
   width: 3rem;
   height: 3rem;
   font-size: 20px;
-  background: #96d9ff;
-  border: 2px solid #2f009c;
-  color: #231c9e;
+  background: var(--calc-op-color);
+  color: var(--calc-op-text-color);
   font-family: cursive;
-  border-radius: 4px;
 }
 
 .btn-tall {
@@ -65,13 +82,14 @@ body {
 }
 
 .btn-enter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 3rem;
   font-size: 20px;
-  background: #96d9ff;
-  border: 2px solid #2f009c;
-  color: #231c9e;
+  background: var(--calc-enter-color);
+  color: black;
   font-family: cursive;
-  border-radius: 4px;
   height: 6.05rem;
   font-size: 14px;
 }
@@ -79,11 +97,9 @@ body {
 .btn-clear {
   width: 3rem;
   font-size: 20px;
-  background: #96d9ff;
-  border: 2px solid #2f009c;
-  color: #231c9e;
+  background: var(--calc-sign-color);
+  color: var(--calc-func-text-color);
   font-family: cursive;
-  border-radius: 4px;
   height: 3rem;
   font-size: 14px;
 }
@@ -91,11 +107,9 @@ body {
 .btn-back {
   width: 3rem;
   font-size: 20px;
-  background: #96d9ff;
-  border: 2px solid #2f009c;
-  color: #231c9e;
+  background: var(--calc-sign-color);
+  color: var(--calc-func-text-color);
   font-family: cursive;
-  border-radius: 4px;
   height: 3rem;
   font-size: 14px;
 }
@@ -103,11 +117,9 @@ body {
 .btn-sign {
   width: 3rem;
   font-size: 20px;
-  background: #ffd187;
-  border: 2px solid #2f009c;
-  color: #231c9e;
+  background: var(--calc-sign-color);
+  color: var(--calc-func-text-color);
   font-family: cursive;
-  border-radius: 4px;
   height: 3rem;
   font-size: 14px;
 }
@@ -116,14 +128,14 @@ body {
 
 .calc-container {
   display: flex;
-  gap: .1rem;
+  gap: var(--gap-const);
   /* border: 1px solid red; */
 }
 
 .calc-leftside {
   display: flex;
   flex-direction: column;
-  gap: .1rem;
+  gap: var(--gap-const);
   margin-top: 2px;
   /* border: 1px solid orange; */
 }
@@ -131,7 +143,7 @@ body {
 .calc-rightside {
   display: flex;
   flex-direction: column;
-  gap: .1rem;
+  gap: var(--gap-const);
   margin-top: .4rem;
   margin-left: 1px;
   /* border: 1px solid yellow; */
@@ -140,20 +152,21 @@ body {
 .num-pad {
   display: flex;
   flex-direction: column;
-  gap: .1rem;
+  gap: var(--gap-const);
   margin-top: .3rem;
   /* border: 1px solid green; */
 }
 
 .num-row {
   display: flex;
-  gap: .1rem;
+  gap: var(--gap-const);
   /* border: 1px solid blue; */
 }
 
 .btm-row {
   display: flex;
-  gap: .1rem;
+  justify-content: space-between;
+
   margin-top: .3rem;
   /* border: 1px solid blue; */
 }
